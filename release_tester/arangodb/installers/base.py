@@ -126,12 +126,6 @@ class BinaryDescription():
             else:
                 return False
     
-                print('stripped file not found')
-
-            # checking both output size
-            return befor_stripped_size == after_stripped_size
-        return self.stripped
-
     def check_stripped_linux(self):
         """ check whether this file is stripped (or not) """
         output = run_file_command(self.path)
@@ -365,7 +359,7 @@ class InstallerBase(ABC):
 
         self.arango_binaries.append(BinaryDescription(
             self.cfg.real_sbin_dir, 'rclone-arangodb',
-            True, True, "1.0.0", "4.0.0", [], 'go'))
+            True, True, "1.0.0", "4.0.0", [], 'c++'))
 
     def check_installed_files(self):
         """ check for the files whether they're installed """
